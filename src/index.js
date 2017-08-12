@@ -15,16 +15,22 @@ Instance.prototype = {
 		return $.data($el[0], this.options.bind);
 	},
 
-	getByEl: function($el) {
-		return this.instances.filter(function(inst) {
+	getByEl: function($el, all) {
+		all = typeof all == 'undefined' ? false : all;
+		var instances = this.instances.filter(function(inst) {
 			return inst.$el.is($el) || inst.$el.find($el).length;
-		})[0];
+		});
+		if (all) return instances;
+		return instances[0]
 	},
 
-	getByOuterEl: function($el) {
-		return this.instances.filter(function(inst) {
+	getByOuterEl: function($el, all) {
+		all = typeof all == 'undefined' ? false : all;
+		var instances = this.instances.filter(function(inst) {
 			return $el.find(inst.$el).length || $el.is(inst.$el);
-		})[0];
+		});
+		if (all) return instances;
+		return instances[0]
 	},
 
 	getFirst: function() {
