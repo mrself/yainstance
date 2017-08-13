@@ -8,7 +8,7 @@ Instance.prototype = {
 
 	add: function(inst) {
 		this.instances.push(inst);
-		$.data(inst.$el[0], this.options.bind, inst);
+		if (inst.$el[0]) $.data(inst.$el[0], this.options.bind, inst);
 	},
 
 	getByBinding: function($el) {
