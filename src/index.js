@@ -21,7 +21,7 @@ Instance.prototype = {
 			return inst.$el.is($el) || inst.$el.find($el).length;
 		});
 		if (all) return instances;
-		return instances[0]
+		return instances[0];
 	},
 
 	getByOuterEl: function($el, all) {
@@ -30,7 +30,7 @@ Instance.prototype = {
 			return $el.find(inst.$el).length || $el.is(inst.$el);
 		});
 		if (all) return instances;
-		return instances[0]
+		return instances[0];
 	},
 
 	getFirst: function() {
